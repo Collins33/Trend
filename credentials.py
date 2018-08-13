@@ -26,12 +26,11 @@ api = tweepy.API(auth, wait_on_rate_limit=True)
 
 # use a cursor to loop throught tweets
 # and collect 50 tweets
-for tweet in tweepy.Cursor(api.search, 'blockchains').items(5):
+for tweet in tweepy.Cursor(api.search, 'blockchains').items(2):
     try:
         print(tweet.text)
+        tweet.retweet()
         sleep(5)
     except Exception as e:
-        print('could not complete task')
+        print('could not complete task because of ', e)
     sleep(5)
-
-
