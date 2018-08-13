@@ -14,11 +14,13 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
 # initialize the api
-api = tweepy.API(auth)
-# # wait on limit being set to true means the
+api = tweepy.API(auth, wait_on_rate_limit=True)
+# wait on limit being set to true means the
 # code will not crash when it reaches rate
 # limit
 
-public_tweets = api.home_timeline()
-for tweet in public_tweets:
-    print (tweet.text)
+# public_tweets = api.home_timeline()
+# for tweet in public_tweets:
+#     print (tweet.text)
+
+
