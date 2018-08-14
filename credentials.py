@@ -58,5 +58,7 @@ def follow():
         sleep(5)
 
 follow()
+favourite()
+retweet()
 
 
