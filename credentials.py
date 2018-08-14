@@ -46,7 +46,17 @@ def favourite():
             print('could not favorite because of ', e)
         sleep(5)
 
-favourite()
-retweet()
+# function to follow a person
+def follow():
+    for tweet in tweepy.Cursor(api.search, 'wwe').items(2):
+        try:
+            user_name = tweet.author.screen_name
+            print(user_name)
+            api.create_friendship(user_name)
+        except Exception as e:
+            print('could not follow because of ', e)
+        sleep(5)
+
+follow()
 
 
