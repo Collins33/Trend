@@ -28,13 +28,25 @@ api = tweepy.API(auth, wait_on_rate_limit=True)
 def retweet():
     for tweet in tweepy.Cursor(api.search, 'blockchains').items(2):
         try:
-            print(tweet.text)
+            # print(tweet.text)
             tweet.retweet()
             sleep(5)
         except Exception as e:
             print('could not complete task because of ', e)
         sleep(5)
 
+# function to favourite a tweet
+def favourite():
+    for tweet in tweepy.Cursor(api.search, 'ambrose').items(2):
+        try:
+            print(tweet.text)
+            tweet.favorite()
+            sleep(5)
+        except Exception as e:
+            print('could not favorite because of ', e)
+        sleep(5)
 
+favourite()
 retweet()
+
 
