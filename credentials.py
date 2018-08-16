@@ -25,8 +25,8 @@ api = tweepy.API(auth, wait_on_rate_limit=True)
 
 
 # function to retweet tweets with specific word
-def retweet():
-    for tweet in tweepy.Cursor(api.search, 'blockchains').items(2):
+def retweet(topic):
+    for tweet in tweepy.Cursor(api.search, topic).items(2):
         try:
             # print(tweet.text)
             tweet.retweet()
@@ -36,6 +36,8 @@ def retweet():
         sleep(5)
 
 # function to favourite a tweet
+
+
 def favourite():
     for tweet in tweepy.Cursor(api.search, 'ambrose').items(2):
         try:
@@ -47,6 +49,8 @@ def favourite():
         sleep(5)
 
 # function to follow a person
+
+
 def follow():
     for tweet in tweepy.Cursor(api.search, 'wwe').items(2):
         try:
@@ -57,8 +61,11 @@ def follow():
             print('could not follow because of ', e)
         sleep(5)
 
-follow()
-favourite()
-retweet()
 
+# follow()
+# favourite()
+# retweet()
 
+topic = raw_input("what topic do you want to retweet?")
+
+retweet(topic)
